@@ -1,0 +1,79 @@
+import tkinter as tk
+from tkinter import messagebox, ttk
+import subprocess
+import platform
+import shutil
+
+class WindowsToolbox:
+    def __init__(self, master):
+        self.master = master
+        master.title("Windows Toolbox")
+
+        # Create a notebook (tabbed interface)
+        self.notebook = ttk.Notebook(master)
+        self.notebook.pack(pady=10, expand=True)
+
+        # Create first tab
+        self.tab1 = ttk.Frame(self.notebook)
+        self.notebook.add(self.tab1, text='Main Functions')
+
+        # Create second tab
+        self.tab2 = ttk.Frame(self.notebook)
+        self.notebook.add(self.tab2, text='Additional Functions')
+
+        # Main Functions in Tab 1
+        self.create_main_functions(self.tab1)
+
+        # Additional Functions in Tab 2
+        self.create_additional_functions(self.tab2)
+
+        # Quit Button
+        self.quit_button = tk.Button(master, text="Quit", command=master.quit)
+        self.quit_button.pack(pady=20)
+
+    def create_main_functions(self, tab):
+        tk.Label(tab, text="Welcome to the Windows Toolbox!").pack(pady=10)
+
+        tk.Button(tab, text="Open File Explorer", command=self.open_file_explorer).pack(pady=5)
+        tk.Button(tab, text="Show System Info", command=self.show_system_info).pack(pady=5)
+        tk.Button(tab, text="Launch Calculator", command=self.launch_calculator).pack(pady=5)
+        tk.Button(tab, text="Open Command Prompt", command=self.open_command_prompt).pack(pady=5)
+        tk.Button(tab, text="Open Notepad", command=self.open_notepad).pack(pady=5)
+
+    def create_additional_functions(self, tab):
+        tk.Label(tab, text="Additional Functions").pack(pady=10)
+
+        tk.Button(tab, text="Open Paint", command=self.open_paint).pack(pady=5)
+        tk.Button(tab, text="Open Windows Settings", command=self.open_windows_settings).pack(pady=5)
+        tk.Button(tab, text="Open Snipping Tool", command=self.open_snipping_tool).pack(pady=5)
+        tk.Button(tab, text="Open Documents Folder", command=self.open_documents_folder).pack(pady=5)
+        tk.Button(tab, text="Open Downloads Folder", command=self.open_downloads_folder).pack(pady=5)
+        tk.Button(tab, text="Open Desktop Folder", command=self.open_desktop_folder).pack(pady=5)
+        tk.Button(tab, text="Open Pictures Folder", command=self.open_pictures_folder).pack(pady=5)
+        tk.Button(tab, text="Open Music Folder", command=self.open_music_folder).pack(pady=5)
+        tk.Button(tab, text="Open Videos Folder", command=self.open_videos_folder).pack(pady=5)
+        tk.Button(tab, text="Show Python Version", command=self.show_python_version).pack(pady=5)
+
+    def open_file_explorer(self):
+        subprocess.Popen('explorer')
+
+    def show_system_info(self):
+        system_info = f"System: {platform.system()}\n" \
+                      f"Node Name: {platform.node()}\n" \
+                      f"Release: {platform.release()}\n" \
+                      f"Version: {platform.version()}\n" \
+                      f"Machine: {platform.machine()}\n" \
+                      f"Processor: {platform.processor()}\n"
+        messagebox.showinfo("System Info", system_info)
+
+    def launch_calculator(self):
+        subprocess.Popen('calc')
+
+    def open_command_prompt(self):
+        subprocess.Popen('cmd')
+
+    def open_notepad(self):
+        subprocess.Popen('notepad')
+
+    def open_paint(self):
+        subprocess.Popen('

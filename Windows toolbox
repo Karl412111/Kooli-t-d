@@ -9,25 +9,25 @@ class WindowsToolbox:
         self.master = master
         master.title("Windows Toolbox")
 
-        # Create a notebook (tabbed interface)
+        # Tee Notebook (tabbed interface)
         self.notebook = ttk.Notebook(master)
         self.notebook.pack(pady=10, expand=True)
 
-        # Create first tab
+        # Tee esimene tab
         self.tab1 = ttk.Frame(self.notebook)
         self.notebook.add(self.tab1, text='Main Functions')
 
-        # Create second tab
+        # Tee teine tab
         self.tab2 = ttk.Frame(self.notebook)
         self.notebook.add(self.tab2, text='Additional Functions')
 
-        # Main Functions in Tab 1
+        # main funktsioonid 1 tabi jaoks
         self.create_main_functions(self.tab1)
 
-        # Additional Functions in Tab 2
+        # Functsioonid 2 tabi jaoks
         self.create_additional_functions(self.tab2)
 
-        # Quit Button
+        # Quit nupp
         self.quit_button = tk.Button(master, text="Quit", command=master.quit)
         self.quit_button.pack(pady=20)
 
